@@ -155,3 +155,73 @@ let doubledSequence = function(base, length) {
 console.log(doubleSequence(7, 3));  // [7, 14, 28]
 console.log(doubleSequence(3, 5));  // [3, 6, 12, 24, 48]
 ```
+
+## Triple Sequence
+Generates a sequence of numbers starting from a given number, where each subsequent number is obtained by multiplying the previous number by 3.
+
+```javascript
+function tripleSequence(start, length) {
+    // initialise array to store sequence, starting with given number
+    let seq = [start];
+
+    // loop starting at index after last element in seq array, in this case: 'i = 1' as there is only ever one element. but 'i = sq.length' is a more generalised approach
+    for (let i = seq.length; i < length; i++) {
+        // multiply last number by 3 and add to sequence
+        seq.push(seq[seq.length - 1] * 3);
+    }
+    return seq;
+}
+
+console.log(tripleSequence(2, 4)); // [2, 6, 18, 54]
+console.log(tripleSequence(4, 5)); // [4, 12, 36, 108, 324]
+```
+
+## Unique
+Function to return an array containing only unique elements from the input array.
+
+```javascript
+let unique = function(array) {
+    // initialise empty array to store unique elements
+    let uniques = [];
+
+    for (let i = 0; i < array.length; i++) {
+        // get current element
+        let el = array[i];
+
+        // check if element is not already present in uniques array
+        if (!uniques.include(el)) {
+            // if current element not present, add it to uniques array
+            uniques.push(el);
+        }
+    }
+    return uniques;
+}
+
+console.log(unique([11, 7, 8, 10, 8, 7, 7])); // [11, 7, 8, 10]
+console.log(unique(['a', 'b', 'c', 'b'])); // ['a', 'b', 'c']
+```
+
+## Yeller
+Converts each word in an array to uppercase and adds an exclamation mark
+
+```javascript
+let yeller = function(words) {
+    // initialise empty array to store modified words
+    let newWords = [];
+
+    for (let i = 0; i < words.length; i++) {
+        // get current word
+        let word = words[i];
+
+        // convert to 'yelled' word
+        let modifiedWord = word.toUpperCase() + '!';
+
+        // add mofified word to newWords array
+        newWords.push(modifiedWord);
+    }
+    return newWords;
+}
+
+console.log(yeller(['hello', 'world'])); // [ 'HELLO!', 'WORLD!' ]
+console.log(yeller(['kiwi', 'orange', 'mango'])); // [ 'KIWI!', 'ORANGE!', 'MANGO!' ]
+```
