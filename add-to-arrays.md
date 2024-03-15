@@ -225,3 +225,44 @@ let yeller = function(words) {
 console.log(yeller(['hello', 'world'])); // [ 'HELLO!', 'WORLD!' ]
 console.log(yeller(['kiwi', 'orange', 'mango'])); // [ 'KIWI!', 'ORANGE!', 'MANGO!' ]
 ```
+
+## Tripler
+Returns a new array containing three times every number of the original array.
+
+```javascript
+let tripler = function(nums) {
+    // initialise array to store tripled nums
+    let newNums = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        // assess each number, store in variable 'num'
+        let num = nums[i];
+
+        newNums.push(num * 3);
+    }
+    return newNums;
+}
+
+console.log(tripler([2, 7, 4])); // [ 6, 21, 12 ]
+```
+
+## Long Words
+returns an array containing only the words that are longer than 5 characters.
+
+```javascript
+let longWords = function(words) {
+    let filteredWords = [];
+
+    for (let i = 0; i < words.length; i++) {
+        // access current word
+        let word = words[i];
+
+        if (word.length > 5) {
+            filteredWords.push(word);
+        }
+    }
+    return filteredWords;
+}
+
+console.log(longWords(['couscous', 'soup', 'ceviche', 'solyanka' ,'taco'])); // [ 'couscous', 'ceviche', 'solyanka' ]
+```
