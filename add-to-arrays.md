@@ -266,3 +266,73 @@ let longWords = function(words) {
 
 console.log(longWords(['couscous', 'soup', 'ceviche', 'solyanka' ,'taco'])); // [ 'couscous', 'ceviche', 'solyanka' ]
 ```
+
+## Choosey Endings
+Takes an array of words and a suffix as input. Any words that end the suffix are returned in an array.
+
+```javascript
+let chooseyEndings = function(words, suffix) {
+    // check if input words is not an array
+    if (!Array.isArray(words)) {
+        // if not array, return empty array
+        return [];
+    }
+
+    // define empty array to store filtered words
+    let filteredWords = [];
+
+    // iterate through each word in input array
+    for (let i = 0; i < words.length; i++) {
+        // get current word from array
+        let word = words[i];
+        // check if current word ends with provided suffix
+        if (word.endsWith(suffix)) {
+            // add to filteredWords array
+            filteredWords.push(word);
+        }
+    }
+    return filteredWords;
+}
+
+console.log(chooseyEndings(['family', 'hound', 'catalyst','fly', 'timidly', 'bond'], 'ly'));
+// [ 'family', 'fly', 'timidly' ]
+```
+
+## Common Factors
+Accepts two numbers as arguments. Function should return array containing positive numbers that are able to divide into both arguments.
+
+```javascript
+let commonFactors = function(num1, num2) {
+    let factors = [];
+    for (let i = 1; i <= num1; i++) {
+        if (num1 % i === 0 && num2 % i === 0) {
+            factors.push(i);
+        }
+    }
+    return factors;
+}
+```
+
+## Adjacent Sums
+Takes an array of numbers as an input. It iterates through calculates the sum of the adjacent elements, adding each new sum to a new array.
+
+```javascript
+let adjacentSums = function(array) {
+    if (!Array.isArray(array)) {
+        // if not an array, throw an error message
+        throw 'Not an array!';
+    }
+
+    // define empty array to store sums of adjacent elements
+    let sums = [];
+
+    // iterate through each element, except last
+    for (let i = 0; i < array.length - 1; i++) {
+        // calculate sum of current element and next element
+        let sum = array[i] + array[i + 1];
+        // add sum to sums array
+        sums.push(sum);
+    }
+    // return array containing sums of adjacent elements
+    return sums;
+}
