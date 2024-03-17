@@ -336,3 +336,37 @@ let adjacentSums = function(array) {
     // return array containing sums of adjacent elements
     return sums;
 }
+```
+
+## Fibonacci Sequence
+Returns an array representing the fibonacci sequence up to a given length.
+
+```javascript
+let fibonacciSequence = function(length) {
+    if (length === 0) {
+        return [ ];
+    }
+
+    else if (length === 1) {
+        return [ 1 ];
+    }
+
+    let seq = [1, 1];
+
+    while (seq.length < length) {
+        // get last Fibonacci number in sequence
+        let last = seq[seq.length - 1];
+        // get second-to-last Fibonacci number in the sequence
+        let secondLast = seq[seq.length - 2];
+        // calculate next Fibonacci number
+        let next = last + secondLast;
+        // Add number to sequence
+        seq.push(next);
+    }
+
+    return seq;
+}
+
+console.log(fibonacciSequence(4));  // [ 1, 1, 2, 3 ]
+console.log(fibonacciSequence(5));  // [ 1, 1, 2, 3, 5 ]
+```
